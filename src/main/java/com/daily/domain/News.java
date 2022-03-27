@@ -10,7 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 public class News {
 
     @Id @GeneratedValue
