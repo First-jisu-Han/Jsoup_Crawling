@@ -4,10 +4,12 @@ import org.jboss.jandex.Main;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
 public class jsoupTest {
+    @Test
     public static void main(String[] args) throws IOException {
         String MainURL = "https://news.naver.com/main/ranking/popularDay.naver";
         Document doc = Jsoup.connect(MainURL).get();
@@ -27,5 +29,13 @@ public class jsoupTest {
             etitles[i] = doc1[i].select(".media_end_head_headline");
             contents[i]=doc1[i].select("#newsct_article").text();  // 뉴스 내용 크롤링
             titles[i]=etitles[i].text();  // 뉴스 기사 제목 크롤링
+        }
+
+        // 확인 코드
+        for(String content:contents){
+            System.out.println("contents = " + content);
+        }
+        for(String title:titles){
+            System.out.println("title = " + title);
         }
     }}

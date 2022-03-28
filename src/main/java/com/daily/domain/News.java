@@ -15,6 +15,9 @@ import javax.persistence.Id;
 public class News {
 
     @Id @GeneratedValue
+    @Column(name="news_id")
+    private Long id;
+
     @Column(name="title")
     private String title;
 
