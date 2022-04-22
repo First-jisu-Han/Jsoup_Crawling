@@ -17,12 +17,7 @@ public class NewsRepository {
     private final EntityManager em;
 
     public void save(News news) {
-        if (news.getTitle() == null) {   // 만약 id를 갖고있지 않다면 , persist 수행 ( 새로등록하는 )
             em.persist(news);
-        }
-        else{
-            log.info("이미존재");
-        }
     }
     public List<News> giveContents(){
         return em.createQuery("select n from News n",News.class).getResultList();
